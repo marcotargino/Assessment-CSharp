@@ -1,0 +1,13 @@
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Cadastro.exe
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Cadastro.deps.json
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Cadastro.runtimeconfig.json
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Cadastro.runtimeconfig.dev.json
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Cadastro.dll
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Cadastro.pdb
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Cadastro.csprojAssemblyReference.cache
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Cadastro.csproj.CoreCompileInputs.cache
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Cadastro.AssemblyInfoInputs.cache
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Cadastro.AssemblyInfo.cs
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Cadastro.dll
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Cadastro.pdb
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Cadastro.genruntimeconfig.cache

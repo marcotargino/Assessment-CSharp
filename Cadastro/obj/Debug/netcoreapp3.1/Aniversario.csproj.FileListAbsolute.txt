@@ -1,0 +1,13 @@
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.csprojAssemblyReference.cache
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.csproj.CoreCompileInputs.cache
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.AssemblyInfoInputs.cache
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.AssemblyInfo.cs
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.exe
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.deps.json
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.runtimeconfig.json
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.runtimeconfig.dev.json
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.dll
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.pdb
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.dll
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.pdb
+C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.genruntimeconfig.cache
