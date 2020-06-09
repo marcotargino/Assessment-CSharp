@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "86gAiBRdiYHHe5/eq5qW8hFMedjuWxNE9wh6Ptt2Vu3CcqqdtYYMDuAOXdwzgWvl2KJfbFUSHORvVMDpUnQfrw==",
+  "dgSpecHash": "wE6grHVCYannjtY5+7CIGpg487cUQa8XMPJkzTI5jAOc/uYqZ4Nb/8VJobaFs2wbAKmqvRjnxWWQWV7ckqFL2w==",
   "success": true,
   "projectFilePath": "C:\\Users\\marco\\source\\repos\\TP3.GerenciamentoAniversario\\Cadastro\\Aniversario.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\marco\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
   "logs": []
 }
