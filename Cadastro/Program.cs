@@ -1,6 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using static System.Console;
 
 namespace Aniversario
@@ -124,7 +125,7 @@ namespace Aniversario
 
             foreach (Aniversariante aniversariante in DataBase.Cadastrados())
             { 
-                WriteLine($"Nome: { aniversariante.Name} - Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                WriteLine($"Nome: {aniversariante.Name} - Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                 //WriteLine(aniversariante.Birthdate.ToString("dd/MM/yyyy"));
             }
 
@@ -135,12 +136,18 @@ namespace Aniversario
         {
             Clear();
 
+            Write("Entre como o nome ou sobrenome: ");
+            string name = ReadLine();
+            Write(name);
+
+            //var pesquisa = DataBase.Cadastrados().Where(aniversariante => aniversariante.Contains(name, StringComparison.InvariantCultureIgnoreCase));
         }
 
         /////////////////////////CHANGE/////////////////////////
         public static void Alterar()
         {
             Clear();
+
 
         }
     }
