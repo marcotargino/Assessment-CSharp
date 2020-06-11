@@ -23,8 +23,9 @@ namespace Aniversario
             WriteLine("1- Cadastrar aniversariante;");
             WriteLine("2- Pesquisar aniversariante;");
             WriteLine("3- Alterar cadastro;");
-            WriteLine("4- Excluir cadastro;");
-            WriteLine("5- Sair.");
+            WriteLine("4- Deletar cadastro;");
+            WriteLine("0- Sair");
+            
 
             char Option = ReadLine().ToCharArray()[0];
 
@@ -41,6 +42,11 @@ namespace Aniversario
                 case '3':
                     Alterar();
                     break;
+
+                case '0':
+                    Sair();
+                    break;
+
 
                 default:
                     WriteLine("Opção inválida!");
@@ -91,8 +97,9 @@ namespace Aniversario
             Clear();
 
             WriteLine("Escolha uma opção para consulta:");
-            WriteLine("1- Buscar aniversariante pelo nome");
-            WriteLine("2- Listar todos os aniversariantes");
+            WriteLine("1- Buscar aniversariante pelo nome;");
+            WriteLine("2- Listar todos os aniversariantes;");
+            WriteLine("0- Voltar ao Menu do Sistema.");
 
             char Option = ReadLine().ToCharArray()[0];
 
@@ -104,6 +111,11 @@ namespace Aniversario
 
                 case '2':
                     ListAll();
+                    break;
+
+                case '0':
+                    Clear();
+                    MainMenu();
                     break;
 
                 default:
@@ -123,9 +135,11 @@ namespace Aniversario
         {
             Clear();
 
+            var resultado = new List<Aniversariante>();
+
             foreach (Aniversariante aniversariante in DataBase.Cadastrados())
             { 
-                WriteLine($"Nome: {aniversariante.Name} - Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                 //WriteLine(aniversariante.Birthdate.ToString("dd/MM/yyyy"));
             }
 
@@ -138,9 +152,22 @@ namespace Aniversario
 
             Write("Entre como o nome ou sobrenome: ");
             string name = ReadLine();
-            Write(name);
+            //Write(name);
 
-            //var pesquisa = DataBase.Cadastrados().Where(aniversariante => aniversariante.Contains(name, StringComparison.InvariantCultureIgnoreCase));
+            var pesquisa = DataBase.Cadastrados().Where(aniversariante => aniversariante.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase));
+            var resultado = new List<Aniversariante>();
+
+            foreach(var aniversariante in pesquisa)
+            {
+                resultado.Add(aniversariante);
+            }
+
+            foreach(var aniversariante in resultado)
+            {
+                WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+            }
+
+            Write("\nPressione qualquer tecla para voltar ao Menu.");
         }
 
         /////////////////////////CHANGE/////////////////////////
@@ -149,6 +176,11 @@ namespace Aniversario
             Clear();
 
 
+        }
+
+        public static void Sair()
+        {
+            Environment.Exit(0);
         }
     }
 }
