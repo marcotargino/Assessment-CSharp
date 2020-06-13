@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Aniversario
@@ -13,9 +14,14 @@ namespace Aniversario
             Cadastro.Add(aniversariante);
         }
 
-        public static List<Aniversariante> Cadastrados()
+        public static IEnumerable<Aniversariante> Cadastrados()
         {
             return Cadastro;
+        }
+
+        public static IEnumerable<Aniversariante> Cadastrados(string name)
+        {
+            return Cadastro.Where(aniversariante => aniversariante.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase));
         }
     }
 }

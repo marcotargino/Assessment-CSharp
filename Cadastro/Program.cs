@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualBasic;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using static System.Console;
 
 namespace Aniversario
@@ -31,22 +31,11 @@ namespace Aniversario
 
             switch (Option)
             {
-                case '1':
-                    Cadastrar();
-                    break;
+                case '1': Cadastrar(); break;
+                case '2': Pesquisar(); break;
+                case '3': Alterar(); break;
 
-                case '2':
-                    Pesquisar();
-                    break;
-
-                case '3':
-                    Alterar();
-                    break;
-
-                case '0':
-                    Sair();
-                    break;
-
+                case '0': Sair(); break;
 
                 default:
                     WriteLine("Opção inválida!");
@@ -69,7 +58,7 @@ namespace Aniversario
             //WriteLine(Name);
 
             Write("Entre com a data de nascimento no formato AAAA, MM, DD: ");
-            DateTime birthdate = DateTime.Parse(ReadLine());
+            var birthdate = DateTime.Parse(ReadLine());
             //WriteLine(Birthdate);
 
             Aniversariante aniversariante = new Aniversariante();
@@ -105,18 +94,9 @@ namespace Aniversario
 
             switch (Option)
             {
-                case '1':
-                    FindName();
-                    break;
-
-                case '2':
-                    ListAll();
-                    break;
-
-                case '0':
-                    Clear();
-                    MainMenu();
-                    break;
+                case '1': FindName(); break;
+                case '2': ListAll(); break;
+                case '0': Clear(); MainMenu(); break;
 
                 default:
                     Write("Opção inválida!");
@@ -130,7 +110,32 @@ namespace Aniversario
             MainMenu();
         }
 
-        /////////////////////////LIST/////////////////////////
+        /////////////////////////LISTNAME/////////////////////////
+        static void FindName()
+        {
+            Clear();
+
+            Write("Entre com o nome ou sobrenome: ");
+            string name = ReadLine();
+            //Write(name);
+
+            var pesquisa = DataBase.Cadastrados().Where(aniversariante => aniversariante.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase));
+            var resultado = new List<Aniversariante>();
+
+            foreach (var aniversariante in pesquisa)
+            {
+                resultado.Add(aniversariante);
+            }
+
+            foreach (var aniversariante in resultado)
+            {
+                WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+            }
+
+            Write("\nPressione qualquer tecla para voltar ao Menu.");
+        }
+
+        /////////////////////////LISTALL/////////////////////////
         static void ListAll()
         {
             Clear();
@@ -146,30 +151,6 @@ namespace Aniversario
             Write("\nPressione qualquer tecla para voltar ao Menu.");
         }
 
-        static void FindName()
-        {
-            Clear();
-
-            Write("Entre como o nome ou sobrenome: ");
-            string name = ReadLine();
-            //Write(name);
-
-            var pesquisa = DataBase.Cadastrados().Where(aniversariante => aniversariante.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase));
-            var resultado = new List<Aniversariante>();
-
-            foreach(var aniversariante in pesquisa)
-            {
-                resultado.Add(aniversariante);
-            }
-
-            foreach(var aniversariante in resultado)
-            {
-                WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
-            }
-
-            Write("\nPressione qualquer tecla para voltar ao Menu.");
-        }
-
         /////////////////////////CHANGE/////////////////////////
         public static void Alterar()
         {
@@ -177,7 +158,7 @@ namespace Aniversario
 
 
         }
-
+        /////////////////////////EXIT/////////////////////////
         public static void Sair()
         {
             Environment.Exit(0);
