@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
+using static System.Console;
 using System.Text;
 
 namespace Aniversario
@@ -22,6 +23,11 @@ namespace Aniversario
         public static IEnumerable<Aniversariante> Cadastrados(string name)
         {
             return Cadastro.Where(aniversariante => aniversariante.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase));
+        }
+
+        public static IEnumerable<Aniversariante> Cadastrados(DateTime birthdate)
+        {
+            return Cadastro.Where(aniversariante => aniversariante.Birthdate.Date == birthdate);
         }
     }
 }
