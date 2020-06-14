@@ -8,24 +8,24 @@ namespace Aniversario
 {
     class DataBase
     {
-        static List<Aniversariante> Cadastro = new List<Aniversariante>();
+        static List<Class> Cadastro = new List<Class>();
 
-        public static void Save(Aniversariante aniversariante)
+        public static void Save(Class aniversariante)
         {
             Cadastro.Add(aniversariante);
         }
 
-        public static IEnumerable<Aniversariante> Cadastrados()
+        public static IEnumerable<Class> Cadastrados()
         {
             return Cadastro;
         }
 
-        public static IEnumerable<Aniversariante> Cadastrados(string name)
+        public static IEnumerable<Class> Cadastrados(string name)
         {
             return Cadastro.Where(aniversariante => aniversariante.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase));
         }
 
-        public static IEnumerable<Aniversariante> Cadastrados(DateTime birthdate)
+        public static IEnumerable<Class> Cadastrados(DateTime birthdate)
         {
             return Cadastro.Where(aniversariante => aniversariante.Birthdate.Date == birthdate);
         }

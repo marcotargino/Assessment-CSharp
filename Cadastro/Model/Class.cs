@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Aniversario
 {
-    class Aniversariante
+    class Class
     {
         public string Name { get; set; }
 
