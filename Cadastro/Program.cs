@@ -12,18 +12,5 @@ namespace Aniversario
         {
             Presentation.MainMenu();
         }
-
-        /////////////////////////CHANGE/////////////////////////
-        public static void Shift()
-        {
-            Clear();
-
-
-        }
-        /////////////////////////EXIT/////////////////////////
-        public static void Exit()
-        {
-            Environment.Exit(0);
-        }
     }
 }

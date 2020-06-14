@@ -20,9 +20,9 @@ namespace Aniversario
             return Cadastro;
         }
 
-        public static IEnumerable<Class> Cadastrados(string name)
+        public static IEnumerable<Class> Cadastrados(string fullname)
         {
-            return Cadastro.Where(aniversariante => aniversariante.Name.Contains(name, StringComparison.InvariantCultureIgnoreCase));
+            return Cadastro.Where(aniversariante => aniversariante.Name.Contains(fullname, StringComparison.InvariantCultureIgnoreCase));
         }
 
         public static IEnumerable<Class> Cadastrados(DateTime birthdate)

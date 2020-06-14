@@ -24,8 +24,8 @@ namespace Aniversario
             {
                 case '1': Record(); break;
                 case '2': Search(); break;
-                case '3': Program.Shift(); break;
-                case '0': Program.Exit(); break;
+                case '3': Shift(); break;
+                case '0': Exit(); break;
 
                 default:
                     WriteLine("Opção inválida!");
@@ -42,13 +42,13 @@ namespace Aniversario
                 Write("Entre com o sobrenome: ");
                 string surname = ReadLine();
 
-                string name = (firstname + " " + surname);
+                string fullname = (firstname + " " + surname);
 
                 Write("Entre com a data de nascimento no formato AAAA, MM, DD: ");
                 var birthdate = DateTime.Parse(ReadLine());
 
                 Class aniversariante = new Class();
-                aniversariante.Name = name;
+                aniversariante.Name = fullname;
                 aniversariante.Birthdate = birthdate;
                 DataBase.Save(aniversariante);
 
@@ -99,9 +99,9 @@ namespace Aniversario
                 Clear();
 
                 Write("Entre com o nome ou sobrenome: ");
-                string name = ReadLine();
+                string fullname = ReadLine();
 
-                var pesquisa = DataBase.Cadastrados(name);
+                var pesquisa = DataBase.Cadastrados(fullname);
                 var resultado = new List<Class>();
 
                 foreach (var aniversariante in pesquisa)
@@ -129,6 +129,21 @@ namespace Aniversario
                 }
 
                 Write("\nPressione qualquer tecla para voltar ao Menu.");
+            }
+
+            static void Shift()
+            {
+                Clear();
+
+                Write("Entre com o nome ou sobrenome: ");
+                string fullname = ReadLine();
+
+                //var aniversariante = DataBase.FindRecord(fullname);
+            }
+        
+            static void Exit()
+            {
+                Environment.Exit(0);
             }
         }
     }
