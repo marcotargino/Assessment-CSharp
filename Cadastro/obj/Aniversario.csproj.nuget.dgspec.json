@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marco\\source\\repos\\TP3.GerenciamentoAniversario\\Cadastro\\Aniversario.csproj": {}
+    "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Aniversario.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marco\\source\\repos\\TP3.GerenciamentoAniversario\\Cadastro\\Aniversario.csproj": {
+    "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Aniversario.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marco\\source\\repos\\TP3.GerenciamentoAniversario\\Cadastro\\Aniversario.csproj",
+        "projectUniqueName": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Aniversario.csproj",
         "projectName": "Aniversario",
-        "projectPath": "C:\\Users\\marco\\source\\repos\\TP3.GerenciamentoAniversario\\Cadastro\\Aniversario.csproj",
+        "projectPath": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Aniversario.csproj",
         "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marco\\source\\repos\\TP3.GerenciamentoAniversario\\Cadastro\\obj\\",
+        "outputPath": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\marco\\AppData\\Roaming\\NuGet\\NuGet.Config",

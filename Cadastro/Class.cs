@@ -1,11 +1,11 @@
-﻿using Microsoft.VisualBasic;
-using System;
+﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Aniversario
 {
-    class Class
+    public class Aniversariante
     {
         public string Name { get; set; }
 

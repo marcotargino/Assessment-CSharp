@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Cadastro",
-    "\\Cadastro\\Model"
+    "\\Cadastro"
   ],
-  "SelectedNode": "\\Cadastro\\Presentation.cs",
+  "SelectedNode": "\\Cadastro\\Program.cs",
   "PreviewInSolutionExplorer": false
 }

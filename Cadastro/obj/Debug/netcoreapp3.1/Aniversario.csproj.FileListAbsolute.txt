@@ -11,7 +11,6 @@ C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\bin\Debug\netc
 C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.dll
 C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.pdb
 C:\Users\marco\source\repos\TP3.GerenciamentoAniversario\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.genruntimeconfig.cache
-C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.csprojAssemblyReference.cache
 C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.AssemblyInfoInputs.cache
 C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.AssemblyInfo.cs
 C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.csproj.CoreCompileInputs.cache
@@ -24,3 +23,4 @@ C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Aniversar
 C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.dll
 C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Aniversario.pdb
 C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.genruntimeconfig.cache
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Aniversario.csprojAssemblyReference.cache

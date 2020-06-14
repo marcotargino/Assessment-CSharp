@@ -47,7 +47,7 @@ namespace Aniversario
                 Write("Entre com a data de nascimento no formato AAAA, MM, DD: ");
                 var birthdate = DateTime.Parse(ReadLine());
 
-                Class aniversariante = new Class();
+                var aniversariante = new Aniversariante(fullname);
                 aniversariante.Name = fullname;
                 aniversariante.Birthdate = birthdate;
                 DataBase.Save(aniversariante);
@@ -102,7 +102,7 @@ namespace Aniversario
                 string fullname = ReadLine();
 
                 var pesquisa = DataBase.Cadastrados(fullname);
-                var resultado = new List<Class>();
+                var resultado = new List<Aniversariante>();
 
                 foreach (var aniversariante in pesquisa)
                 {
@@ -121,9 +121,9 @@ namespace Aniversario
             {
                 Clear();
 
-                var resultado = new List<Class>();
+                var resultado = new List<Aniversariante>();
 
-                foreach (Class aniversariante in DataBase.Cadastrados())
+                foreach (var aniversariante in DataBase.Cadastrados())
                 {
                     WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                 }
@@ -138,7 +138,7 @@ namespace Aniversario
                 Write("Entre com o nome ou sobrenome: ");
                 string fullname = ReadLine();
 
-                //var aniversariante = DataBase.FindRecord(fullname);
+                var aniversariante = DataBase.FindRecord(fullname);
             }
         
             static void Exit()
