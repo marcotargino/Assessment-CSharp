@@ -15,15 +15,7 @@ namespace Aniversario
         {
             var exist = Cadastro.Find(i => i == aniversariante);
 
-            if(exist != null)
-            {
-                WriteLine("Cadastro já existente");
-                Thread.Sleep(2000); Clear();
-                
-                WriteLine("Pressione qualquer tecla para voltar ao Menu"); ReadKey();
-                Clear(); Presentation.MainMenu();
-            }
-            else
+            if(exist == null)
             {
                 Cadastro.Add(aniversariante);
             }

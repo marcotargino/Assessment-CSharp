@@ -135,11 +135,25 @@ namespace Aniversario
             {
                 Clear();
 
+                var pesquisa = DataBase.Cadastrados();
                 var resultado = new List<Aniversariante>();
 
-                foreach (var aniversariante in DataBase.Cadastrados())
+                foreach(var aniversariante in pesquisa)
                 {
-                    WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                    resultado.Add(aniversariante);
+                }
+
+                if(resultado != null)
+                {
+                    foreach (var aniversariante in DataBase.Cadastrados())
+                    {
+                        WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                    }
+                }
+                else
+                {
+                    WriteLine("Nenhum resultado encontrado");
+                    Thread.Sleep(2000);
                 }
 
                 Write("\nPressione qualquer tecla para voltar ao Menu.");
@@ -149,7 +163,7 @@ namespace Aniversario
             {
                 Clear();
 
-                Write("Entre com o nome ou sobrenome: ");
+                Write("Entre com o nome completo: ");
                 string fullname = ReadLine();
 
                 var aniversariante = DataBase.FindRecord(fullname);
@@ -162,11 +176,11 @@ namespace Aniversario
                 }
                 else
                 {
-                    Write("Entre com o novo nome:");
+                    Write("\nEntre com o novo nome: ");
                     string newname = ReadLine();
                     aniversariante.Name = newname;
+                    WriteLine("\nAlteração realizada com sucesso!");
                     DataBase.Save(aniversariante);
-                    WriteLine("Alteração realizada com sucesso!");
                     Thread.Sleep(2000);
                     Clear();
                 }
@@ -177,7 +191,7 @@ namespace Aniversario
             {
                 Clear();
 
-                Write("Entre com o nome ou sobrenome: ");
+                Write("Entre com o nome completo: ");
                 string fullname = ReadLine();
 
                 var aniversariante = DataBase.FindRecord(fullname);
@@ -190,7 +204,7 @@ namespace Aniversario
                 else
                 {
                     DataBase.DeleteRecord(aniversariante);
-                    Write("Cadastro removido com sucesso!");
+                    Write("\nCadastro removido com sucesso!");
                     Thread.Sleep(1500); Clear();
                 }
                 Presentation.MainMenu();
