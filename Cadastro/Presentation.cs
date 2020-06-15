@@ -71,9 +71,9 @@ namespace Aniversario
             {
                 Clear();
 
-                WriteLine("Escolha uma opção para consulta:");
-                WriteLine("1- Buscar aniversariante pelo nome;");
-                WriteLine("2- Buscar aniversariante pela data;");
+                WriteLine("Escolha uma opção para consulta:\n");
+                WriteLine("1- Pesquisar aniversariante pelo nome;");
+                WriteLine("2- Pesquisar aniversariante pela data;");
                 WriteLine("3- Listar todos os aniversariantes;");
                 WriteLine("0- Voltar ao Menu do Sistema.");
 
