@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections.Generic;
 using static System.Console;
+using System.Threading;
 using System.Text;
 
 namespace Aniversario
@@ -17,21 +18,15 @@ namespace Aniversario
             if(exist != null)
             {
                 WriteLine("Cadastro já existente");
-                WriteLine("Pressione qualquer tecla para voltar ao Menu");
-                ReadKey();
+                Thread.Sleep(2000); Clear();
                 
-                Clear();
-                Presentation.MainMenu();
+                WriteLine("Pressione qualquer tecla para voltar ao Menu"); ReadKey();
+                Clear(); Presentation.MainMenu();
             }
             else
             {
                 Cadastro.Add(aniversariante);
             }
-        }
-
-        public static void DeleteRecord(Aniversariante aniversariante)
-        {
-            Cadastro.Remove(aniversariante);
         }
 
         public static IEnumerable<Aniversariante> Cadastrados()
@@ -52,6 +47,11 @@ namespace Aniversario
         public static Aniversariante FindRecord(string fullname)
         {
             return Cadastro.Find(aniversariante => aniversariante.Name == fullname);
+        }
+
+        public static void DeleteRecord(Aniversariante aniversariante)
+        {
+            Cadastro.Remove(aniversariante);
         }
     }
 }

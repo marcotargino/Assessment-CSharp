@@ -6,12 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controller\**" />
-    <Compile Remove="View\**" />
-    <EmbeddedResource Remove="Controller\**" />
-    <EmbeddedResource Remove="View\**" />
-    <None Remove="Controller\**" />
-    <None Remove="View\**" />
+    <Folder Include="Model\" />
+    <Folder Include="Controller\" />
+    <Folder Include="View\" />
   </ItemGroup>
 
 </Project>
