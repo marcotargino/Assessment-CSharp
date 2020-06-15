@@ -45,13 +45,8 @@ namespace Aniversario
             {
                 Clear();
 
-                Write("Entre com o primeiro nome: ");
-                string firstname = ReadLine();
-
-                Write("Entre com o sobrenome: ");
-                string surname = ReadLine();
-
-                string fullname = (firstname + " " + surname);
+                Write("Entre com o nome e sobrenome: ");
+                string fullname = ReadLine();
 
                 Write("Entre com a data de nascimento no formato AAAA, MM, DD: ");
                 var birthdate = DateTime.Parse(ReadLine());
@@ -62,7 +57,7 @@ namespace Aniversario
                 DataBase.Save(aniversariante);
  
                 WriteLine("\nCADASTRO REALIZADO COM SUCESSO!");
-                Thread.Sleep(1500); Clear();
+                Thread.Sleep(1000); Clear();
                 MainMenu();
             }
 
@@ -78,7 +73,8 @@ namespace Aniversario
 
                 WriteLine("Escolha uma opção para consulta:");
                 WriteLine("1- Buscar aniversariante pelo nome;");
-                WriteLine("2- Listar todos os aniversariantes;");
+                WriteLine("2- Buscar aniversariante pela data;");
+                WriteLine("3- Listar todos os aniversariantes;");
                 WriteLine("0- Voltar ao Menu do Sistema.");
 
                 char choice = ReadLine().ToCharArray()[0];
