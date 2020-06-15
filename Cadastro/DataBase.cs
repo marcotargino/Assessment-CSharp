@@ -12,7 +12,26 @@ namespace Aniversario
 
         public static void Save(Aniversariante aniversariante)
         {
-            Cadastro.Add(aniversariante);
+            var exist = Cadastro.Find(i => i == aniversariante);
+
+            if(exist != null)
+            {
+                WriteLine("Cadastro já existente");
+                WriteLine("Pressione qualquer tecla para voltar ao Menu");
+                ReadKey();
+                
+                Clear();
+                Presentation.MainMenu();
+            }
+            else
+            {
+                Cadastro.Add(aniversariante);
+            }
+        }
+
+        public static void DeleteRecord(Aniversariante aniversariante)
+        {
+            Cadastro.Remove(aniversariante);
         }
 
         public static IEnumerable<Aniversariante> Cadastrados()

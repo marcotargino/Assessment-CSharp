@@ -3,6 +3,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using static System.Console;
+using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Aniversario
 {
@@ -25,6 +27,7 @@ namespace Aniversario
                 case '1': Record(); break;
                 case '2': Search(); break;
                 case '3': Shift(); break;
+                case '4': Delete(); break;
                 case '0': Exit(); break;
 
                 default:
@@ -47,7 +50,7 @@ namespace Aniversario
                 Write("Entre com a data de nascimento no formato AAAA, MM, DD: ");
                 var birthdate = DateTime.Parse(ReadLine());
 
-                var aniversariante = new Aniversariante(fullname);
+                var aniversariante = new Aniversariante();
                 aniversariante.Name = fullname;
                 aniversariante.Birthdate = birthdate;
                 DataBase.Save(aniversariante);
@@ -137,8 +140,30 @@ namespace Aniversario
 
                 Write("Entre com o nome ou sobrenome: ");
                 string fullname = ReadLine();
+                //WriteLine("Pressione qualquer tecla para voltar ao Menu");
+                //Clear();
+                //Presentation.MainMenu();
+                
+            }
 
-                var aniversariante = DataBase.FindRecord(fullname);
+            static void Delete()
+            {
+                Clear();
+
+                Write("Entre com o nome ou sobrenome: ");
+                string fullname = ReadLine();
+
+                //var del = DataBase.DeleteRecord(fullname);
+
+                //if (del == null)
+                //{
+                //    WriteLine("Cadastro não encontrado.");
+                //    WriteLine("Pressione qualquer tecla para voltar ao Menu.");
+                //    ReadKey();
+                //    Clear();
+                //    Presentation.MainMenu();
+                    
+                //}
             }
         
             static void Exit()
