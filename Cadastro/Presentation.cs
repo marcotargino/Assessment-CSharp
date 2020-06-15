@@ -24,18 +24,21 @@ namespace Aniversario
 
             switch (Option)
             {
-                case '1': Record(); break;
-                case '2': Search(); break;
-                case '3': Shift(); break;
-                case '4': Delete(); break;
-                case '0': Exit(); break;
+                case '1': Record(); break;                  //(1)
+                case '2': Search(); break;                  //(2)
+                case '3': Shift(); break;                   //(3)
+                case '4': Delete(); break;                  //(4)
+                
+                case '0': 
+                    Environment.Exit(0); 
+                    break;
 
                 default:
                     WriteLine("Opção inválida!");
                     break;
             }
 
-            static void Record()
+            static void Record()                            //(1)
             {
                 Clear();
 
@@ -62,7 +65,7 @@ namespace Aniversario
                 MainMenu();
             }
 
-            static void Search()
+            static void Search()                            //(2)
             {
                 Clear();
                 Options();
@@ -81,9 +84,14 @@ namespace Aniversario
 
                 switch (choice)
                 {
-                    case '1': FindName(); break;
-                    case '2': ListAll(); break;
-                    case '0': Clear(); MainMenu(); break;
+                    case '1': FindName(); break;            //[1]
+                    case '2': FindDate(); break;            //[2]
+                    case '3': ListAll(); break;             //[3]
+                    
+                    case '0': 
+                        Clear(); 
+                        MainMenu(); 
+                        break;
 
                     default:
                         Write("Opção inválida!");
@@ -97,7 +105,7 @@ namespace Aniversario
                 MainMenu();
             }
 
-            static void FindName()
+            static void FindName()                          //[1]
             {
                 Clear();
 
@@ -120,7 +128,13 @@ namespace Aniversario
                 Write("\nPressione qualquer tecla para voltar ao Menu.");
             }
 
-            static void ListAll()
+            static void FindDate()
+            {
+                Clear();
+
+            }
+
+            static void ListAll()                           //[3]
             {
                 Clear();
 
@@ -134,19 +148,39 @@ namespace Aniversario
                 Write("\nPressione qualquer tecla para voltar ao Menu.");
             }
 
-            static void Shift()
+            static void Shift()                             //(3)
             {
                 Clear();
 
                 Write("Entre com o nome ou sobrenome: ");
                 string fullname = ReadLine();
-                //WriteLine("Pressione qualquer tecla para voltar ao Menu");
-                //Clear();
-                //Presentation.MainMenu();
-                
+
+                var aniversariante = DataBase.FindRecord(fullname);
+
+                if(aniversariante == null)
+                {
+                    WriteLine("Cadastro não encontrado");
+                    System.Threading.Thread.Sleep(2000);
+                    Clear();
+                }
+                else
+                {
+                    Write("Entre com o novo nome:");
+                    string newname = ReadLine();
+                    aniversariante.Name = newname;
+                    DataBase.Save(aniversariante);
+                    WriteLine("Alteração realizada com sucesso!");
+                    System.Threading.Thread.Sleep(2000);
+                    Clear();
+                }
+                WriteLine("Pressione qualquer tecla para voltar ao Menu");
+                ReadKey();
+
+                Clear();
+                Presentation.MainMenu();
             }
 
-            static void Delete()
+            static void Delete()                            //(4)
             {
                 Clear();
 
@@ -164,11 +198,6 @@ namespace Aniversario
                 //    Presentation.MainMenu();
                     
                 //}
-            }
-        
-            static void Exit()
-            {
-                Environment.Exit(0);
             }
         }
     }
