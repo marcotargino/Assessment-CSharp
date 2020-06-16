@@ -35,7 +35,7 @@ namespace Aniversario
                     break;
 
                 default:
-                    Clear(); WriteLine("Opção inválida!");
+                    Clear(); WriteLine("OPÇÃO INVÁLIDA!");
                     Thread.Sleep(2000); Clear();
                     MainMenu();
                     break;
@@ -48,8 +48,8 @@ namespace Aniversario
                 Write("Entre com o nome e sobrenome: ");
                 string fullname = ReadLine();
 
-                Write("Entre com a data de nascimento no formato AAAA, MM, DD: ");
-                var birthdate = DateTime.Parse(ReadLine());
+                Write("Entre com a data de nascimento no formato YYYY/MM/DD: ");
+                var birthdate = DateTime.Parse(ReadLine()).ToString("dd/MM/yyyy");
 
                 var aniversariante = new Aniversariante();
                 aniversariante.Name = fullname;
@@ -91,7 +91,7 @@ namespace Aniversario
                         break;
 
                     default:
-                        Write("Opção inválida!");
+                        Write("OPÇÃO INVÁLIDA!");
                         ReadKey();
                         Search();
                         break;
@@ -143,7 +143,7 @@ namespace Aniversario
                     resultado.Add(aniversariante);
                 }
 
-                if(resultado != null)
+                if(resultado.Count != 0)
                 {
                     foreach (var aniversariante in DataBase.Cadastrados())
                     {
@@ -152,7 +152,7 @@ namespace Aniversario
                 }
                 else
                 {
-                    WriteLine("Nenhum resultado encontrado");
+                    WriteLine("NENHUM CADASTRO ENCONTRADO!");
                     Thread.Sleep(2000);
                 }
 
@@ -170,17 +170,18 @@ namespace Aniversario
 
                 if(aniversariante == null)
                 {
-                    WriteLine("\nCADASTRO NÃO ENCONTRADO");
+                    WriteLine("\nNENHUM CADASTRO ENCONTRADO!");
                     Thread.Sleep(2000);
                     Clear();
                 }
                 else
                 {
+                    DataBase.DeleteRecord(aniversariante);
                     Write("\nEntre com o novo nome: ");
                     string newname = ReadLine();
                     aniversariante.Name = newname;
-                    WriteLine("\nAlteração realizada com sucesso!");
                     DataBase.Save(aniversariante);
+                    WriteLine("\nCADASTRO ALTERADO COM SUCESSO!");
                     Thread.Sleep(2000);
                     Clear();
                 }
@@ -198,13 +199,13 @@ namespace Aniversario
 
                 if (aniversariante == null)
                 {
-                    Write("\nCADASTRO NÃO ENCONTRADO");
+                    Write("\nNENHUM CADASTRO ENCONTRADO!");
                     Thread.Sleep(2000); Clear();
                 }
                 else
                 {
                     DataBase.DeleteRecord(aniversariante);
-                    Write("\nCadastro removido com sucesso!");
+                    Write("\nCADASTRO REMOVIDO COM SUCESSO!");
                     Thread.Sleep(1500); Clear();
                 }
                 Presentation.MainMenu();
