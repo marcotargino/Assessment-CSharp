@@ -13,11 +13,16 @@ namespace Aniversario
 
         public static void Save(Aniversariante aniversariante)
         {
-            var exist = Cadastro.Find(i => i == aniversariante);
+            var exist = Cadastro.Find(i => i.Name == aniversariante.Name);
 
             if(exist == null)
             {
                 Cadastro.Add(aniversariante);
+            }
+            else
+            {
+                WriteLine("\nCadastro já existente!\n\nPressione qualquer tecla para voltar ao Menu.");
+                ReadKey(); Clear(); Presentation.MainMenu();
             }
         }
 
