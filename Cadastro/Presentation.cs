@@ -49,16 +49,16 @@ namespace Aniversario
                 string fullname = ReadLine();
 
                 Write("Entre com a data de nascimento no formato YYYY/MM/DD: ");
-                var birthdate = DateTime.Parse(ReadLine()).ToString("dd/MM/yyyy");
+                var birthdate = DateTime.Parse(ReadLine());
 
                 var aniversariante = new Aniversariante();
                 aniversariante.Name = fullname;
                 aniversariante.Birthdate = birthdate;
                 DataBase.Save(aniversariante);
  
-                WriteLine("\nCADASTRO REALIZADO COM SUCESSO!");
-                Thread.Sleep(1000); Clear();
-                MainMenu();
+                WriteLine("\nCADASTRO REALIZADO COM SUCESSO!"); Thread.Sleep(1000);
+                Write("\n\nPressione qualquer tecla para voltar ao Menu.");
+                ReadKey(); Clear(); MainMenu();
             }
 
             static void Search()                            //(2)
@@ -112,6 +112,7 @@ namespace Aniversario
                 var pesquisa = DataBase.Cadastrados(fullname);
                 var resultado = new List<Aniversariante>();
 
+                
                 foreach (var aniversariante in pesquisa)
                 {
                     resultado.Add(aniversariante);
@@ -120,15 +121,45 @@ namespace Aniversario
                 foreach (var aniversariante in resultado)
                 {
                     WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                    CountTime(aniversariante.Birthdate);
+                }
+                
+                if(resultado.Count == 0)
+                {
+                    WriteLine("\nNENHUM CADASTRO ENCONTRADO!");
+                    Thread.Sleep(1500);
                 }
 
-                Write("\nPressione qualquer tecla para voltar ao Menu.");
+                Write("\n\nPressione qualquer tecla para voltar ao Menu.");
             }
 
-            static void FindDate()
+            static void FindDate()                          //[4]
             {
                 Clear();
 
+            }
+
+            static void CountTime(DateTime aniversariante)
+            {
+                DateTime today = DateTime.Today.Date;
+                DateTime nextBirthday = new DateTime(today.Year, aniversariante.Month, aniversariante.Day);
+
+                int age = (today.Year - aniversariante.Year);
+
+                if (nextBirthday < today)
+                {
+                    nextBirthday = nextBirthday.AddYears(1);
+                }
+
+                var daysLeft = (nextBirthday - today).Days;
+                if (daysLeft == 0)
+                {
+                    Write($"\nHoje é o seu aniversário de {age} anos!");
+                }
+                else
+                {
+                    Write($"\nRestam apenas {daysLeft} dias para o seu aniversário de {age} anos.");
+                }
             }
 
             static void ListAll()                           //[3]
@@ -153,7 +184,7 @@ namespace Aniversario
                 else
                 {
                     WriteLine("NENHUM CADASTRO ENCONTRADO!");
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1500);
                 }
 
                 Write("\nPressione qualquer tecla para voltar ao Menu.");
@@ -171,7 +202,7 @@ namespace Aniversario
                 if(aniversariante == null)
                 {
                     WriteLine("\nNENHUM CADASTRO ENCONTRADO!");
-                    Thread.Sleep(2000);
+                    Thread.Sleep(1500);
                     Clear();
                 }
                 else
@@ -182,10 +213,10 @@ namespace Aniversario
                     aniversariante.Name = newname;
                     DataBase.Save(aniversariante);
                     WriteLine("\nCADASTRO ALTERADO COM SUCESSO!");
-                    Thread.Sleep(2000);
-                    Clear();
+                    Thread.Sleep(1500);
                 }
-                Presentation.MainMenu();
+                WriteLine("\nPressione qualquer tecla para voltar ao Menu.");
+                ReadKey(); Clear();  Presentation.MainMenu(); 
             }
 
             static void Delete()                            //(4)
@@ -200,7 +231,7 @@ namespace Aniversario
                 if (aniversariante == null)
                 {
                     Write("\nNENHUM CADASTRO ENCONTRADO!");
-                    Thread.Sleep(2000); Clear();
+                    Thread.Sleep(1500); Clear();
                 }
                 else
                 {
@@ -208,7 +239,8 @@ namespace Aniversario
                     Write("\nCADASTRO REMOVIDO COM SUCESSO!");
                     Thread.Sleep(1500); Clear();
                 }
-                Presentation.MainMenu();
+                WriteLine("\nPressione qualquer tecla para voltar ao Menu.");
+                ReadKey(); Clear();  Presentation.MainMenu();
             }
         }
     }
