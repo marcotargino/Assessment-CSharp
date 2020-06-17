@@ -183,6 +183,11 @@ namespace Aniversario
                     CountTime(aniversariante.Birthdate);
                 }
 
+                if (resultado.Count == 0)
+                {
+                    WriteLine("\nNENHUM CADASTRO ENCONTRADO!"); Thread.Sleep(1500);
+                }
+
                 WriteLine("\nPressione ENTER para fazer nova pesquisa ou ESC para voltar ao Menu Principal.");
 
                 ConsoleKeyInfo key = Console.ReadKey();
@@ -192,15 +197,6 @@ namespace Aniversario
                     case (ConsoleKey.Escape): Clear(); MainMenu(); break;
                 }
             }
-
-           //static void Request(List<Aniversariante>retorno)
-           // {
-           //     if(retorno.Count() == 0)
-           //     {
-           //         WriteLine("\nNENHUM CADASTRO ENCONTRADO!");
-           //         Thread.Sleep(1500);
-           //     }
-           // }
 
             static void CountTime(DateTime aniversariante)
             {
@@ -243,6 +239,14 @@ namespace Aniversario
                     {
                         WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data de Nascimento: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                     }
+                    Write("\nPressione ENTER para mais detalhes ou ESC para voltar à Lista.");
+
+                    ConsoleKeyInfo keyInfo = Console.ReadKey();
+                    switch (keyInfo.Key)
+                    {
+                        case (ConsoleKey.Enter): MoreInfo(resultado); break;
+                        case (ConsoleKey.Escape): Clear(); ListAll(); break;
+                    }
                 }
                 else
                 {
@@ -260,6 +264,41 @@ namespace Aniversario
                 }
             }
 
+            static void MoreInfo(IEnumerable<Aniversariante> aniversariante)
+            {
+                WriteLine("Entre com o índice do aniversariante cadastrado.");
+                var index = int.Parse(ReadLine());
+                var resultado = new List<Aniversariante>();
+
+                foreach(var id in aniversariante)
+                {
+                    if(aniversariante.ToList().IndexOf(id) == index) { resultado.Add(id); break; }
+                }
+
+                if (resultado.Count() == 0)
+                {
+                    WriteLine("\nNENHUM CADASTRO ENCONTRADO!"); Thread.Sleep(1500);
+                    WriteLine("\nPressione ENTER para tentar novamente ou ESC para voltar ao Menu.");
+
+                    ConsoleKeyInfo keyError = Console.ReadKey();
+                    switch (keyError.Key)
+                    {
+                        case (ConsoleKey.Enter): Clear(); ListAll(); break;
+                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    }
+                }
+                else
+                {
+                    Clear();
+
+                    foreach(var id in resultado)
+                    {
+                        WriteLine($"\nNome: {id.Name}\t Data de Nascimento: {id.Birthdate.ToString("dd/MM/yyyy")}");
+                        CountTime(id.Birthdate);
+                    }
+                }
+            }
+
             static void Shift()                                         //(3)
             {
                 Clear();
@@ -273,7 +312,7 @@ namespace Aniversario
                 switch (keyOption.Key)
                 {
                     case (ConsoleKey.D1): Clear(); ShiftName(); break;
-                    case (ConsoleKey.D2): Clear(); ShiftData(); break;
+                    case (ConsoleKey.D2): Clear(); ShiftDate(); break;
                     case (ConsoleKey.Escape): Clear(); MainMenu(); break;
                 }
             }
@@ -328,9 +367,60 @@ namespace Aniversario
                 }
             }
 
-            static void ShiftData()
+            static void ShiftDate()
             {
                 Clear();
+
+                Write("Entre com a data no formato YYYY/MM/DD: ");
+                var birthdate = (ReadLine());
+
+                var aniversariante = DataBase.FindRecord(birthdate);
+
+                //foreach (var aniversariante in resultado)
+                //{
+                //    WriteLine($"\nNome: {aniversariante.Name}\t Data de Nascimento: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                //    CountTime(aniversariante.Birthdate);
+                //}
+
+                if (aniversariante == null)
+                {
+                    WriteLine("\nNENHUM CADASTRO ENCONTRADO!"); Thread.Sleep(1500);
+                }
+
+                WriteLine("\nPressione ENTER para fazer nova pesquisa ou ESC para voltar ao Menu Principal.");
+
+                ConsoleKeyInfo key = Console.ReadKey();
+                switch (key.Key)
+                {
+                    case (ConsoleKey.Enter): Clear(); Search(); break;
+                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                }
+
+                WriteLine($"\nDeseja realmente alterar esse cadastro?\n\nNome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                WriteLine("\nPressione ENTER para CONFIRMAR ou ESC para CANCELAR.");
+                ConsoleKeyInfo keyDate = Console.ReadKey();
+                if (keyDate.Key == ConsoleKey.Escape)
+                {
+                    Clear(); MainMenu();
+                }
+                else if (key.Key == ConsoleKey.Enter)
+                {
+                    DataBase.DeleteRecord(aniversariante);
+                    Write("\nEntre com o novo nome: ");
+                    string newname = ReadLine();
+                    aniversariante.Name = newname;
+                    DataBase.Save(aniversariante);
+
+                    WriteLine("\nCADASTRO ALTERADO COM SUCESSO!"); Thread.Sleep(1500);
+                    WriteLine("\nPressione ENTER para fazer nova pesquisa ou ESC para voltar ao Menu Principal.");
+
+                    ConsoleKeyInfo keyExit = Console.ReadKey();
+                    switch (keyExit.Key)
+                    {
+                        case (ConsoleKey.Enter): Clear(); Shift(); break;
+                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    }
+                }
             }
 
 
