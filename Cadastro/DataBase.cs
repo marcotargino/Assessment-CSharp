@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using static System.Console;
 using System.Threading;
 using System.Text;
+using System.Net.NetworkInformation;
 
 namespace Aniversario
 {
@@ -49,6 +50,11 @@ namespace Aniversario
         public static void DeleteRecord(Aniversariante aniversariante)
         {
             Cadastro.Remove(aniversariante);
+        }
+
+        public static IEnumerable<Aniversariante> BirthToday()
+        {
+            return (from dude in Cadastrados() where dude.Birthdate.Day == DateTime.Today.Day && dude.Birthdate.Month == DateTime.Today.Month orderby dude.Age select dude);
         }
     }
 }
