@@ -147,7 +147,7 @@ namespace Aniversario
 
                 foreach (var aniversariante in resultado)
                 {
-                    WriteLine($"\n{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data de Nascimento: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                    WriteLine($"\n{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                     CountTime(aniversariante.Birthdate);
                 }
                 
@@ -179,7 +179,7 @@ namespace Aniversario
 
                 foreach (var aniversariante in resultado)
                 {
-                    WriteLine($"\nNome: {aniversariante.Name}\t Data de Nascimento: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                    WriteLine($"\nNome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                     CountTime(aniversariante.Birthdate);
                 }
 
@@ -237,7 +237,7 @@ namespace Aniversario
                 {
                     foreach (var aniversariante in DataBase.Cadastrados())
                     {
-                        WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data de Nascimento: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
+                        WriteLine($"{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                     }
                     Write("\nPressione ENTER para mais detalhes ou ESC para voltar à Lista.");
 
@@ -293,7 +293,7 @@ namespace Aniversario
 
                     foreach(var id in resultado)
                     {
-                        WriteLine($"\nNome: {id.Name}\t Data de Nascimento: {id.Birthdate.ToString("dd/MM/yyyy")}");
+                        WriteLine($"\nNome: {id.Name}\t Data: {id.Birthdate.ToString("dd/MM/yyyy")}");
                         CountTime(id.Birthdate);
                     }
                 }
@@ -324,7 +324,7 @@ namespace Aniversario
                 Write("Entre com o nome completo para confirmar: ");
                 string fullname = ReadLine();
 
-                var aniversariante = DataBase.FindRecord(fullname);
+                var aniversariante = DataBase.FindRecordName(fullname);
 
                 if (aniversariante == null)
                 {
@@ -371,29 +371,22 @@ namespace Aniversario
             {
                 Clear();
 
-                Write("Entre com a data no formato YYYY/MM/DD: ");
-                var birthdate = (ReadLine());
+                Write("Entre com o nome completo para confirmar: ");
+                string fullname = ReadLine();
 
-                var aniversariante = DataBase.FindRecord(birthdate);
-
-                //foreach (var aniversariante in resultado)
-                //{
-                //    WriteLine($"\nNome: {aniversariante.Name}\t Data de Nascimento: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
-                //    CountTime(aniversariante.Birthdate);
-                //}
+                var aniversariante = DataBase.FindRecordName(fullname);
 
                 if (aniversariante == null)
                 {
                     WriteLine("\nNENHUM CADASTRO ENCONTRADO!"); Thread.Sleep(1500);
-                }
+                    WriteLine("\nPressione ENTER para continuar ou ESC para voltar ao Menu.");
 
-                WriteLine("\nPressione ENTER para fazer nova pesquisa ou ESC para voltar ao Menu Principal.");
-
-                ConsoleKeyInfo key = Console.ReadKey();
-                switch (key.Key)
-                {
-                    case (ConsoleKey.Enter): Clear(); Search(); break;
-                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    ConsoleKeyInfo keyError = Console.ReadKey();
+                    switch (keyError.Key)
+                    {
+                        case (ConsoleKey.Enter): Clear(); Shift(); break;
+                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    }
                 }
 
                 WriteLine($"\nDeseja realmente alterar esse cadastro?\n\nNome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
@@ -403,12 +396,12 @@ namespace Aniversario
                 {
                     Clear(); MainMenu();
                 }
-                else if (key.Key == ConsoleKey.Enter)
+                else if (keyDate.Key == ConsoleKey.Enter)
                 {
                     DataBase.DeleteRecord(aniversariante);
-                    Write("\nEntre com o novo nome: ");
-                    string newname = ReadLine();
-                    aniversariante.Name = newname;
+                    Write("\nEntre com a nova data no formato YYYY/MM/DD: ");
+                    var newdate = DateTime.Parse(ReadLine());
+                    aniversariante.Birthdate = newdate;
                     DataBase.Save(aniversariante);
 
                     WriteLine("\nCADASTRO ALTERADO COM SUCESSO!"); Thread.Sleep(1500);
@@ -431,7 +424,7 @@ namespace Aniversario
                 Write("Entre com o nome completo: ");
                 string fullname = ReadLine();
 
-                var aniversariante = DataBase.FindRecord(fullname);
+                var aniversariante = DataBase.FindRecordName(fullname);
 
                 if (aniversariante == null)
                 {

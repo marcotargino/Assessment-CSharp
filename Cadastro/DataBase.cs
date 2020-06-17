@@ -42,7 +42,7 @@ namespace Aniversario
             return Cadastro.Where(aniversariante => aniversariante.Birthdate.Date == birthdate);
         }
 
-        public static Aniversariante FindRecord(string fullname)
+        public static Aniversariante FindRecordName(string fullname)
         {
             return Cadastro.Find(aniversariante => aniversariante.Name == fullname);
         }
