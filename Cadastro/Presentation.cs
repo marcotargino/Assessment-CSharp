@@ -133,7 +133,7 @@ namespace Aniversario
             {
                 Clear();
 
-                Write("Entre com o nome ou sobrenome: ");
+                Write("Entre com o nome completo: ");
                 string fullname = ReadLine();
 
                 var pesquisa = DataBase.Cadastrados(fullname);
