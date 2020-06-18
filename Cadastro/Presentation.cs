@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-using System.Text;
 using static System.Console;
 using System.Threading;
 using System.ComponentModel;
@@ -46,15 +45,14 @@ namespace Aniversario
 
             static void BirthDay()
             {
-                DateTime today = DateTime.Today;
                 var birthToday = Archive.BirthToday().ToList();
 
                 if (birthToday.Count != 0)
                 {
                     WriteLine("Aniversariantes de hoje:\n");
-                    foreach(var dude in birthToday)
+                    foreach(var aniversariante in birthToday)
                     {
-                        WriteLine($"Aniversário de {dude.Age} anos do(a) {dude.Name}");
+                        WriteLine($"{aniversariante.Name}");
                     }
                 }
             }
@@ -74,6 +72,7 @@ namespace Aniversario
                 aniversariante.Name = fullname;
                 aniversariante.Birthdate = birthdate;
                 aniversariante.Age = age;
+
                 Archive.Save(aniversariante);
  
                 WriteLine("\nCADASTRO REALIZADO COM SUCESSO!"); Thread.Sleep(1000);
@@ -433,7 +432,7 @@ namespace Aniversario
                     ConsoleKeyInfo keyDel = ReadKey();
                     switch (keyDel.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); Shift(); break;
+                        case (ConsoleKey.Enter): Clear(); Delete(); break;
                         case (ConsoleKey.Escape): Clear(); MainMenu(); break;
                     }
                 }
