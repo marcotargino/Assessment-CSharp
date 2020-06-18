@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.IO;
 using System.Collections.Generic;
 using static System.Console;
 using System.Threading;
@@ -50,6 +51,7 @@ namespace Aniversario
         public static void DeleteRecord(Aniversariante aniversariante)
         {
             Cadastro.Remove(aniversariante);
+            
         }
 
         public static IEnumerable<Aniversariante> BirthToday()
