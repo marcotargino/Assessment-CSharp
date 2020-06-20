@@ -4,14 +4,14 @@ using System.IO;
 using System.Linq;
 using static System.Console;
 
-namespace Aniversario
+namespace Marco_Targino.DR2.AT
 {
     public class Archive
     {
         private static string FileName()
         {
-            var folder = Environment.SpecialFolder.Desktop; 
-            var local = Environment.GetFolderPath(folder); 
+            var folder = Environment.SpecialFolder.Desktop;
+            var local = Environment.GetFolderPath(folder);
             var filename = @"\marco_targino_dr2_at.txt";
             return local + filename;
         }
@@ -65,12 +65,12 @@ namespace Aniversario
 
         public static IEnumerable<Aniversariante> Cadastrados(string fullname)
         {
-            return (from dude in Cadastrados() where dude.Name.Contains(fullname) orderby dude.Name select dude);
+            return from dude in Cadastrados() where dude.Name.Contains(fullname) orderby dude.Name select dude;
         }
 
         public static IEnumerable<Aniversariante> Cadastrados(DateTime birthdate)
         {
-            return (from dude in Cadastrados() where dude.Birthdate.Month == birthdate.Month && dude.Birthdate.Day == birthdate.Day orderby dude.Name select dude);
+            return from dude in Cadastrados() where dude.Birthdate.Month == birthdate.Month && dude.Birthdate.Day == birthdate.Day orderby dude.Name select dude;
         }
 
         public static Aniversariante FindRecordName(string fullname)
@@ -89,7 +89,7 @@ namespace Aniversario
 
         public static IEnumerable<Aniversariante> BirthToday()
         {
-            return (from dude in Cadastrados() where dude.Birthdate.Day == DateTime.Today.Day && dude.Birthdate.Month == DateTime.Today.Month orderby dude.Age select dude);
+            return from dude in Cadastrados() where dude.Birthdate.Day == DateTime.Today.Day && dude.Birthdate.Month == DateTime.Today.Month orderby dude.Age select dude;
         }
     }
 }

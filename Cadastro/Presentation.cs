@@ -8,7 +8,7 @@ using System.Security.Cryptography.X509Certificates;
 using Microsoft.VisualBasic;
 using System.Net.NetworkInformation;
 
-namespace Aniversario
+namespace Marco_Targino.DR2.AT
 {
     class Presentation
     {
@@ -31,9 +31,9 @@ namespace Aniversario
                 case ConsoleKey.D2: Search(); break;                            //(2)
                 case ConsoleKey.D3: Shift(); break;                             //(3)
                 case ConsoleKey.D4: Delete(); break;                            //(4)
-                
-                case ConsoleKey.Escape: 
-                    Environment.Exit(0); 
+
+                case ConsoleKey.Escape:
+                    Environment.Exit(0);
                     break;
 
                 default:
@@ -50,7 +50,7 @@ namespace Aniversario
                 if (birthToday.Count != 0)
                 {
                     WriteLine("Aniversariantes de hoje:\n");
-                    foreach(var aniversariante in birthToday)
+                    foreach (var aniversariante in birthToday)
                     {
                         WriteLine($"{aniversariante.Name}");
                     }
@@ -68,13 +68,13 @@ namespace Aniversario
                 var birthdate = DateTime.Parse(ReadLine());
                 var today = DateTime.Today.Date;
                 var aniversariante = new Aniversariante();
-                int age = (today.Year - birthdate.Year);
+                int age = today.Year - birthdate.Year;
                 aniversariante.Name = fullname;
                 aniversariante.Birthdate = birthdate;
                 aniversariante.Age = age;
 
                 Archive.Save(aniversariante);
- 
+
                 WriteLine("\nCADASTRO REALIZADO COM SUCESSO!"); Thread.Sleep(1000);
 
                 WriteLine("\nPressione ENTER para fazer novos cadastros ou ESC para voltar ao Menu Principal.");
@@ -82,8 +82,8 @@ namespace Aniversario
                 ConsoleKeyInfo keyExit = ReadKey();
                 switch (keyExit.Key)
                 {
-                    case (ConsoleKey.Enter): Clear(); Record(); break;
-                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    case ConsoleKey.Enter: Clear(); Record(); break;
+                    case ConsoleKey.Escape: Clear(); MainMenu(); break;
                 }
             }
 
@@ -110,10 +110,10 @@ namespace Aniversario
                     case ConsoleKey.D1: FindName(); break;                      //[1]
                     case ConsoleKey.D2: FindDate(); break;                      //[2]
                     case ConsoleKey.D3: ListAll(); break;                       //[3]
-                    
-                    case ConsoleKey.Escape: 
-                        Clear(); 
-                        MainMenu(); 
+
+                    case ConsoleKey.Escape:
+                        Clear();
+                        MainMenu();
                         break;
 
                     default:
@@ -138,7 +138,7 @@ namespace Aniversario
                 var pesquisa = Archive.Cadastrados(fullname);
                 var resultado = new List<Aniversariante>();
 
-                
+
                 foreach (var aniversariante in pesquisa)
                 {
                     resultado.Add(aniversariante);
@@ -149,8 +149,8 @@ namespace Aniversario
                     WriteLine($"\n{resultado.IndexOf(aniversariante)}. Nome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                     CountTime(aniversariante.Birthdate);
                 }
-                
-                if(resultado.Count == 0)
+
+                if (resultado.Count == 0)
                 {
                     WriteLine("\nNENHUM CADASTRO ENCONTRADO!"); Thread.Sleep(1500);
                 }
@@ -160,8 +160,8 @@ namespace Aniversario
                 ConsoleKeyInfo keyName = ReadKey();
                 switch (keyName.Key)
                 {
-                    case (ConsoleKey.Enter): Clear(); Search(); break;
-                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    case ConsoleKey.Enter: Clear(); Search(); break;
+                    case ConsoleKey.Escape: Clear(); MainMenu(); break;
                 }
             }
 
@@ -192,8 +192,8 @@ namespace Aniversario
                 ConsoleKeyInfo keyDate = ReadKey();
                 switch (keyDate.Key)
                 {
-                    case (ConsoleKey.Enter): Clear(); Search(); break;
-                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    case ConsoleKey.Enter: Clear(); Search(); break;
+                    case ConsoleKey.Escape: Clear(); MainMenu(); break;
                 }
             }
 
@@ -202,7 +202,7 @@ namespace Aniversario
                 DateTime today = DateTime.Today.Date;
                 DateTime nextBirthday = new DateTime(today.Year, aniversariante.Month, aniversariante.Day);
 
-                int age = (today.Year - aniversariante.Year);
+                int age = today.Year - aniversariante.Year;
 
                 if (nextBirthday < today)
                 {
@@ -242,8 +242,8 @@ namespace Aniversario
                 ConsoleKeyInfo keyInfo = ReadKey();
                 switch (keyInfo.Key)
                 {
-                    case (ConsoleKey.Enter): MoreInfo(resultado); break;
-                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    case ConsoleKey.Enter: MoreInfo(resultado); break;
+                    case ConsoleKey.Escape: Clear(); MainMenu(); break;
                 }
 
                 if (resultado.Count == 0)
@@ -257,8 +257,8 @@ namespace Aniversario
                 ConsoleKeyInfo key = ReadKey();
                 switch (key.Key)
                 {
-                    case (ConsoleKey.Enter): Clear(); Search(); break;
-                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    case ConsoleKey.Enter: Clear(); Search(); break;
+                    case ConsoleKey.Escape: Clear(); MainMenu(); break;
                 }
             }
 
@@ -268,9 +268,9 @@ namespace Aniversario
                 var index = int.Parse(ReadLine());
                 var resultado = new List<Aniversariante>();
 
-                foreach(var id in aniversariante)
+                foreach (var id in aniversariante)
                 {
-                    if(aniversariante.ToList().IndexOf(id) == index) { resultado.Add(id); break; }
+                    if (aniversariante.ToList().IndexOf(id) == index) { resultado.Add(id); break; }
                 }
 
                 if (resultado.Count() == 0)
@@ -281,15 +281,15 @@ namespace Aniversario
                     ConsoleKeyInfo keyError = ReadKey();
                     switch (keyError.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); ListAll(); break;
-                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                        case ConsoleKey.Enter: Clear(); ListAll(); break;
+                        case ConsoleKey.Escape: Clear(); MainMenu(); break;
                     }
                 }
                 else
                 {
                     Clear();
 
-                    foreach(var id in resultado)
+                    foreach (var id in resultado)
                     {
                         WriteLine($"\nNome: {id.Name}\t Data: {id.Birthdate.ToString("dd/MM/yyyy")}");
                         CountTime(id.Birthdate);
@@ -309,9 +309,9 @@ namespace Aniversario
 
                 switch (keyOption.Key)
                 {
-                    case (ConsoleKey.D1): Clear(); ShiftName(); break;          //{1}
-                    case (ConsoleKey.D2): Clear(); ShiftDate(); break;          //{2}
-                    case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                    case ConsoleKey.D1: Clear(); ShiftName(); break;          //{1}
+                    case ConsoleKey.D2: Clear(); ShiftDate(); break;          //{2}
+                    case ConsoleKey.Escape: Clear(); MainMenu(); break;
                 }
             }
 
@@ -332,18 +332,18 @@ namespace Aniversario
                     ConsoleKeyInfo keyError = ReadKey();
                     switch (keyError.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); Shift(); break;
-                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                        case ConsoleKey.Enter: Clear(); Shift(); break;
+                        case ConsoleKey.Escape: Clear(); MainMenu(); break;
                     }
                 }
-                
-                
+
+
                 WriteLine($"\nDeseja realmente alterar esse cadastro?\n\nNome: {aniversariante.Name}\t Data: {aniversariante.Birthdate.ToString("dd/MM/yyyy")}");
                 WriteLine("\nPressione ENTER para CONFIRMAR ou ESC para CANCELAR.");
                 ConsoleKeyInfo key = ReadKey();
                 if (key.Key == ConsoleKey.Escape)
                 {
-                    Clear();  MainMenu();
+                    Clear(); MainMenu();
                 }
                 else if (key.Key == ConsoleKey.Enter)
                 {
@@ -359,8 +359,8 @@ namespace Aniversario
                     ConsoleKeyInfo keyExit = ReadKey();
                     switch (keyExit.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); Shift(); break;
-                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                        case ConsoleKey.Enter: Clear(); Shift(); break;
+                        case ConsoleKey.Escape: Clear(); MainMenu(); break;
                     }
                 }
             }
@@ -382,8 +382,8 @@ namespace Aniversario
                     ConsoleKeyInfo keyError = ReadKey();
                     switch (keyError.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); Shift(); break;
-                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                        case ConsoleKey.Enter: Clear(); Shift(); break;
+                        case ConsoleKey.Escape: Clear(); MainMenu(); break;
                     }
                 }
 
@@ -408,8 +408,8 @@ namespace Aniversario
                     ConsoleKeyInfo keyExit = ReadKey();
                     switch (keyExit.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); Shift(); break;
-                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                        case ConsoleKey.Enter: Clear(); Shift(); break;
+                        case ConsoleKey.Escape: Clear(); MainMenu(); break;
                     }
                 }
             }
@@ -432,8 +432,8 @@ namespace Aniversario
                     ConsoleKeyInfo keyDel = ReadKey();
                     switch (keyDel.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); Delete(); break;
-                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                        case ConsoleKey.Enter: Clear(); Delete(); break;
+                        case ConsoleKey.Escape: Clear(); MainMenu(); break;
                     }
                 }
 
@@ -454,8 +454,8 @@ namespace Aniversario
                     ConsoleKeyInfo keyExit = ReadKey();
                     switch (keyExit.Key)
                     {
-                        case (ConsoleKey.Enter): Clear(); Delete(); break;
-                        case (ConsoleKey.Escape): Clear(); MainMenu(); break;
+                        case ConsoleKey.Enter: Clear(); Delete(); break;
+                        case ConsoleKey.Escape: Clear(); MainMenu(); break;
                     }
                 }
             }

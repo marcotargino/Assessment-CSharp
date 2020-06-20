@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Aniversario.csproj",
-      "projectName": "Aniversario",
-      "projectPath": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Aniversario.csproj",
+      "projectUniqueName": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Marco_Targino.DR2.AT.csproj",
+      "projectName": "Marco_Targino.DR2.AT",
+      "projectPath": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\Marco_Targino.DR2.AT.csproj",
       "packagesPath": "C:\\Users\\marco\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\marco\\source\\repos\\AT.CSharp\\Cadastro\\obj\\",
       "projectStyle": "PackageReference",

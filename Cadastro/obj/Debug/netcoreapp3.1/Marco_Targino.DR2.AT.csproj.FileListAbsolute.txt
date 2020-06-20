@@ -1,0 +1,13 @@
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.exe
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.deps.json
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.runtimeconfig.json
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.runtimeconfig.dev.json
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.dll
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\bin\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.pdb
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.csprojAssemblyReference.cache
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.AssemblyInfoInputs.cache
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.AssemblyInfo.cs
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.csproj.CoreCompileInputs.cache
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.dll
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.pdb
+C:\Users\marco\source\repos\AT.CSharp\Cadastro\obj\Debug\netcoreapp3.1\Marco_Targino.DR2.AT.genruntimeconfig.cache

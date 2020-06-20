@@ -7,7 +7,7 @@ using System.Threading;
 using System.Text;
 using System.Net.NetworkInformation;
 
-namespace Aniversario
+namespace Marco_Targino.DR2.AT
 {
     class DataBase
     {
@@ -17,7 +17,7 @@ namespace Aniversario
         {
             var exist = Cadastro.Find(i => i.Name == aniversariante.Name);
 
-            if(exist == null)
+            if (exist == null)
             {
                 Cadastro.Add(aniversariante);
             }
@@ -51,12 +51,12 @@ namespace Aniversario
         public static void DeleteRecord(Aniversariante aniversariante)
         {
             Cadastro.Remove(aniversariante);
-            
+
         }
 
         public static IEnumerable<Aniversariante> BirthToday()
         {
-            return (from dude in Cadastrados() where dude.Birthdate.Day == DateTime.Today.Day && dude.Birthdate.Month == DateTime.Today.Month orderby dude.Age select dude);
+            return from dude in Cadastrados() where dude.Birthdate.Day == DateTime.Today.Day && dude.Birthdate.Month == DateTime.Today.Month orderby dude.Age select dude;
         }
     }
 }
