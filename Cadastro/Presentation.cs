@@ -67,7 +67,9 @@ namespace Marco_Targino.DR2.AT
                 Write("Entre com a data de nascimento no formato YYYY/MM/DD: ");
                 var birthdate = DateTime.Parse(ReadLine());
                 var today = DateTime.Today.Date;
+
                 var aniversariante = new Aniversariante();
+
                 int age = today.Year - birthdate.Year;
                 aniversariante.Name = fullname;
                 aniversariante.Birthdate = birthdate;
